@@ -1,52 +1,91 @@
 let appointments = [];
 
-const datyInThisMonth = function () {
-    const now = new Date();
-    return new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
-};
+class DateTime extends Date {
+  constructor(props) {
+    super(props);
+    this.now = new Date();
+  }
 
-const saveMeeting = function () {
-    const meetingDay = document.querySelector("#newMeetingDay").innerText;
-    const meetingTime = document.querySelector("#newMeetingTime");
-    const meetingName = document.querySelector("#newMeetingName");
+  dateInThisMonth() {
+    return new Date(
+      this.now.getFullYear(),
+      this.now.getMonth() + 1,
+      0
+    ).getDate();
+  }
 
-    appointments[parseInt(meetingDay) - 1].push(
-        meetingTime.value + "-" + meetingDay.value
-    );
-
-    meetingTime.value = "";
-    meetingName.value = "";
-};
-
-const showAppointment = function (day){
-    
+  getThisMonth() {
+    switch (this.now.getMonth()) {
+      case 0:
+        return "January";
+      case 1:
+        return "February";
+      case 2:
+        return "March";
+      case 3:
+        return "April";
+      case 4:
+        return "May";
+      case 5:
+        return "June";
+      case 6:
+        return "July";
+      case 7:
+        return "August";
+      case 8:
+        return "September";
+      case 9:
+        return "October";
+      case 10:
+        return "November";
+      case 11:
+        return "December";
+    }
+  }
 }
 
+const saveMeeting = function () {
+  const meetingDay = document.querySelector("#newMeetingDay").innerText;
+  const meetingTime = document.querySelector("#newMeetingTime");
+  const meetingName = document.querySelector("#newMeetingName");
+
+  appointments[parseInt(meetingDay) - 1].push(
+    meetingTime.value + "-" + meetingDay.value
+  );
+
+  meetingTime.value = "";
+  meetingName.value = "";
+};
+
+const showAppointment = function (day) {};
+
 window.onload = function () {
-    const numberOfDays = datyInThisMonth();
+  const numberOfDays = new DateTime().dateInThisMonth();
 
-    const calendar = document.querySelector("#calendar");
+  document.querySelector("#month").innerHTML = new DateTime().getThisMonth();
 
-    for (let i = 0; i < numberOfDays; i++) {
-        appointments[i] = [];
+  const calendar = document.querySelector("#calendar");
 
-        const child = document.createElement("div");
-        child.className = "day";
+  for (let i = 0; i < numberOfDays; i++) {
+    appointments[i] = [];
 
-        child.onclick = function () {
-            let selected = document.querySelector(".selected");
+    const child = document.createElement("div");
+    child.className = "day";
 
-            if (selected) {
-                selected.classList.remove("selected");
-            }
-            event.currentTarget.classList.add("selected");
-        };
+    child.onclick = function () {
+      let selected = document.querySelector(".selected");
 
-        const day = document.createElement("h3");
-        const dayOfTheMonth = i + 1;
-        day.innerText = dayOfTheMonth;
+      if (selected) {
+        selected.classList.remove("selected");
+      }
+      event.currentTarget.classList.add("selected");
+    };
 
-        child.appendChild(day);
-        calendar.appendChild(child);
-    }
+    const day = document.createElement("h3");
+    const dayOfTheMonth = i + 1;
+    day.innerText = dayOfTheMonth;
+
+    child.appendChild(day);
+    calendar.appendChild(child);
+  }
 };

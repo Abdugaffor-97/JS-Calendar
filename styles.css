@@ -1,63 +1,68 @@
 body {
-    background-color: #f8f8f8;
+  background-color: #f8f8f8;
 }
 
 h1 {
-    font-size: 64px;
+  font-size: 64px;
+  text-align: center;
 }
 
 h2 {
-    font-size: 36px;
+  font-size: 36px;
+}
+
+#calendar-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 #calendar {
-    background-color: #1b1b1b;
-    color: white;
-    width: 100vh;
-    width: 70%;
-    margin-bottom: 20px;
-    border: 6px solid;
-    border-radius: 10px;
+  background-color: #1b1b1b;
+  color: white;
+  width: 70%;
+  margin-bottom: 20px;
+  border: 6px solid;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .day {
-    display: inline-block;
-    color: white;
-    width: 14%;
-    text-align: center;
-    min-height: 100px;
-    border: 1px solid transparent;
+  display: inline-block;
+  color: white;
+  width: 14%;
+  text-align: center;
+  min-height: 100px;
+  border: 1px solid transparent;
 }
 
 .day h3 {
-    font-weight: 300;
-    font-size: 26px;
+  font-weight: 300;
+  font-size: 26px;
 }
 
 .selected {
-    border: 1px solid #00ff84;
+  border: 1px solid #00ff84;
 }
 
 input {
-    min-width: 24px;
-    background-color: #1b1b1b;
-    width: 100%;
-    color: white;
+  min-width: 24px;
+  background-color: #1b1b1b;
+  width: 100%;
+  color: white;
 }
 
 input::placeholder {
-    color: white;
+  color: white;
 }
 
 input[type="time"] {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-ul{
-    padding: 0;
+ul {
+  padding: 0;
 }
 
-
-li{
-    overflow: hidden;
+li {
+  overflow: hidden;
 }

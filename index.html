@@ -1,46 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Calendar</title>
-</head>
+  </head>
 
-<body>
-    <h1>October</h1>
-    <div id="calendar">
+  <body>
+    <h1 id="month">October</h1>
+
+    <div id="calendar-wrapper">
+      <div id="calendar">
         <!-- day cells will be inserted here -->
-
-
+      </div>
     </div>
     <h2>Add Meeting</h2>
     <div id="addMeeting">
-        <div>
-            <h4>Meeting Day</h4>
-            <span id="newMeetingDay">Click a Day</span>
-        </div>
-        <div>
-            <h4>Meeting Time</h4>
-            <input type="time" id="newMeetingTime">
-        </div>
-        <div>
-            <h4>Meeting Name</h4>
-            <input type="text" id="newMeetingName" placeholder="Insert A Name For The Meeting">
-        </div>
-        <div>
-            <h4>Add</h4>
-            <input type="button" value="Save Meeting" onchange="">
-        </div>
+      <div>
+        <h4>Meeting Day</h4>
+        <span id="newMeetingDay">Click a Day</span>
+      </div>
+      <div>
+        <h4>Meeting Time</h4>
+        <input type="time" id="newMeetingTime" />
+      </div>
+      <div>
+        <h4>Meeting Name</h4>
+        <input
+          type="text"
+          id="newMeetingName"
+          placeholder="Insert A Name For The Meeting"
+        />
+      </div>
+      <div>
+        <h4>Add</h4>
+        <input type="button" value="Save Meeting" onchange="" />
+      </div>
     </div>
     <div>
-        <h4>Appointments for the day</h4>
-        <ul>
-            
-        </ul>
+      <h4>Appointments for the day</h4>
+      <ul></ul>
     </div>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
